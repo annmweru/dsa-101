@@ -128,3 +128,28 @@ function getSumEven(arr){
   const number = [1,2,3,4]
   const allSum = getSumEven(number)
   console.log(`even is ${allSum.even},odd is ${allSum.odd},evenCount is ${allSum.eveCount},oddCount is ${allSum.odCount},`)
+
+
+
+//   closure
+  function privateCounter (){
+    let counter = 0
+    return  {
+      increment:function(){
+      counter ++;
+      return counter
+    },
+     getCount: function(){
+      return counter
+    },
+       reset: function(){
+        return counter = 0
+    },
+    }
+   
+  }
+  const count = privateCounter()
+  console.log(count.increment())
+  console.log(count.increment())
+  console.log(count.reset())
+  console.log(count.getCount())
