@@ -149,7 +149,59 @@ function getSumEven(arr){
    
   }
   const count = privateCounter()
-  console.log(count.increment())
-  console.log(count.increment())
-  console.log(count.reset())
-  console.log(count.getCount())
+
+//   encapsulated object
+
+  function createProduct(name, stock) {
+    return {
+      getDetails: () => {
+        return { name, stock };
+      },
+      purchase: (quantity) => {
+        if (quantity <= stock) {
+          stock -= quantity;
+          return `Purchased ${quantity}`;
+        } else {
+          return `Insufficient stock`;
+        }
+      },
+      restock: (amount) => {
+        stock += amount;
+        return `Restocked ${amount}`;
+      }
+    };
+  }
+//    library status
+
+  function createBook(title,author){
+    let status = 'available'
+    
+    return {
+      getInfo: () => {
+      return `Title:${title},Author:${author} ,Status:${status}`
+  
+    }, borrow:() => {
+          if (status !== 'available'){
+          return "Book already borrowed";
+  
+        }
+      status = 'borrowed'
+      return 'Book borrowed'
+      
+    },
+      returnBook: ()=> {
+        if (status === 'available'){
+            return `Book is already in the library`
+  
+        }
+        statu = 'availble'
+        return 'book returned'
+  
+        
+      }
+    }
+    
+  }
+  const book = createBook("The Alchemist", "Paulo Coelho")
+  console.log(book.getInfo())
+  
