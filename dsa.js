@@ -205,3 +205,20 @@ function getSumEven(arr){
   const book = createBook("The Alchemist", "Paulo Coelho")
   console.log(book.getInfo())
   
+
+//   array map,filter and reduce
+  const students = [
+    { name: "Ali", score: 45 },
+    { name: "Achieng", score: 78 },
+    { name: "Mutiso", score: 59 },
+    { name: "Wairimu", score: 88 },
+  ];
+   const results = students.map(p =>   {
+     return {
+     ...p,
+     grade : p.score >= 60 ? "pass" : "fail"
+   };
+   })
+  const passed = results.filter(p => p.grade === 'pass')
+  const totalSum = results.reduce((sum, student) => sum + student.score,0)
+  const totalAverage = totalSum / results.length
