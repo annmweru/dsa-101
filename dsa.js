@@ -213,12 +213,29 @@ function getSumEven(arr){
     { name: "Mutiso", score: 59 },
     { name: "Wairimu", score: 88 },
   ];
-   const results = students.map(p =>   {
+   const resultss = students.map(p =>   {
      return {
      ...p,
      grade : p.score >= 60 ? "pass" : "fail"
    };
    })
-  const passed = results.filter(p => p.grade === 'pass')
-  const totalSum = results.reduce((sum, student) => sum + student.score,0)
-  const totalAverage = totalSum / results.length
+  const passed = resultss.filter(p => p.grade === 'pass')
+  const totalSum = resultss.reduce((sum, student) => sum + student.score,0)
+  const totalAverage = totalSum / resultss.length
+
+
+
+
+// chaining sort,find and filter
+
+const users = [
+    { id: 1, name: 'Alice', age: 25, active: true },
+    { id: 2, name: 'Bob', age: 30, active: false },
+    { id: 3, name: 'Charlie', age: 35, active: true },
+    { id: 4, name: 'Diana', age: 28, active: true }
+  ];
+  
+  const results = users.filter(user => user.active)
+  .map( user => ({name:user.name,age:user.age}))
+  .sort ((a ,b ) => a.age - b.age)
+  console.log(results)
